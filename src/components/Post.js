@@ -1,5 +1,5 @@
 export default function Post(props){
-    
+    return(
     <div className="post">
             <div className="topo">
               <div className="usuario">
@@ -35,4 +35,5 @@ export default function Post(props){
               </div>
             </div>
           </div>
+    );
 }
