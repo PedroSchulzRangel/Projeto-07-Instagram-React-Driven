@@ -1,23 +1,23 @@
 import React from "react";
 
 function alterarNomeBookmark(nomeBookmark, setNomeBookmark){
-  if (nomeBookmark === "bookmark-outline"){
-    setNomeBookmark("bookmark");
-  }
-  else if(nomeBookmark === "bookmark"){
-    setNomeBookmark("bookmark-outline");
-  }
+  const bookmarkInicial = "bookmark-outline";
+  const bookmarkPreenchido = "bookmark";
+  if (nomeBookmark === bookmarkInicial){
+    setNomeBookmark(bookmarkPreenchido);}
+  else if(nomeBookmark === bookmarkPreenchido){
+    setNomeBookmark(bookmarkInicial);}
 }
 
 function alterarStatusCurtida(nomeCoracao, setNomeCoracao, setNomeClasseCoracao){
-  if(nomeCoracao === "heart-outline"){
-    setNomeCoracao("heart");
-    setNomeClasseCoracao("curtida");
-  }
-  else if(nomeCoracao === "heart"){
-    setNomeCoracao("heart-outline");
-    setNomeClasseCoracao("sem-curtida");
-  }
+  const nomeCoracaoInicial = "heart-outline";
+  const nomeCoracaoPreenchido = "heart"
+  if(nomeCoracao === nomeCoracaoInicial){
+    setNomeCoracao(nomeCoracaoPreenchido);
+    setNomeClasseCoracao("curtida");}
+  else if(nomeCoracao === nomeCoracaoPreenchido){
+    setNomeCoracao(nomeCoracaoInicial);
+    setNomeClasseCoracao("sem-curtida");}
 }
 
 function CurtirAoClicarNaImagem(setNomeCoracao,setNomeClasseCoracao){
@@ -25,8 +25,7 @@ function CurtirAoClicarNaImagem(setNomeCoracao,setNomeClasseCoracao){
   setNomeClasseCoracao("curtida");
 }
 
-export default function Post(props){
-    
+export default function Post(props){   
   const [nomeBookmark,setNomeBookmark] = React.useState("bookmark-outline");
   const [nomeCoracao, setNomeCoracao] = React.useState("heart-outline");
   const [nomeClasseCoracao, setNomeClasseCoracao] = React.useState("sem-curtida");
@@ -44,13 +43,17 @@ export default function Post(props){
             </div>
 
             <div className="conteudo">
-              <img data-test="post-image" onClick={() => CurtirAoClicarNaImagem(setNomeCoracao,setNomeClasseCoracao)} src={props.objeto.srcImagemPrincipal} alt={props.objeto.altImagemPrincipal}/>
+              <img data-test="post-image" 
+              onClick={() => CurtirAoClicarNaImagem(setNomeCoracao,setNomeClasseCoracao)} 
+              src={props.objeto.srcImagemPrincipal} alt={props.objeto.altImagemPrincipal}/>
             </div>
 
             <div className="fundo">
               <div className="acoes">
                 <div>
-                  <ion-icon data-test="like-post" onClick={() => alterarStatusCurtida(nomeCoracao, setNomeCoracao, setNomeClasseCoracao)} class={nomeClasseCoracao} name={nomeCoracao}></ion-icon>
+                  <ion-icon data-test="like-post" 
+                  onClick={() => alterarStatusCurtida(nomeCoracao, setNomeCoracao, setNomeClasseCoracao)} 
+                  class={nomeClasseCoracao} name={nomeCoracao}></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
@@ -62,7 +65,10 @@ export default function Post(props){
               <div className="curtidas">
                 <img src={props.objeto.srcImagemCurtidas} alt={props.objeto.altImagemCurtidas}/>
                 <div className="texto">
-                  Curtido por <strong>{props.objeto.altImagemCurtidas}</strong> e <strong data-test="likes-number">outras {nomeCoracao === "heart" ? (props.objeto.curtidas + 1).toLocaleString('de-DE') : (props.objeto.curtidas).toLocaleString('de-DE')} pessoas</strong>
+                  Curtido por <strong>{props.objeto.altImagemCurtidas}
+                  </strong> e <strong data-test="likes-number">outras {nomeCoracao === "heart" ? 
+                  (props.objeto.curtidas + 1).toLocaleString('de-DE') : 
+                  (props.objeto.curtidas).toLocaleString('de-DE')} pessoas</strong>
                 </div>
               </div>
             </div>
