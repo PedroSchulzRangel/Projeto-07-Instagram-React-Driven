@@ -21,11 +21,11 @@ export default function Usuario(){
 
     return (
         <div className="usuario">
-        <img onClick={() => alterarImagemDeUsuario(setUrlImagemDeUsuario)} src={urlImagemDeUsuario} alt="imagem de perfil"/>
+        <img data-test="profile-image" onClick={() => alterarImagemDeUsuario(setUrlImagemDeUsuario)} src={urlImagemDeUsuario} alt="imagem de perfil"/>
         <div className="texto">
           <span>
-            <strong>{nomeDeUsuario}</strong>
-            <ion-icon onClick={() => alterarNomeDeUsuario(setNomeDeUsuario)} name="pencil"></ion-icon>
+            <strong data-test="name">{nomeDeUsuario}</strong>
+            <ion-icon data-test="edit-name" onClick={() => alterarNomeDeUsuario(setNomeDeUsuario)} name="pencil"></ion-icon>
           </span>
         </div>
       </div>
