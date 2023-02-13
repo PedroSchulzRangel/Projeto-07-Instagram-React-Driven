@@ -1,11 +1,10 @@
 import Usuario from "./Usuario"
 import Sugestoes from "./Sugestoes"
-import dadosDoUsuario from "../dadosDoUsuario";
 
-export default function Sidebar(){
+export default function Sidebar(){  
     return (
         <div className="sidebar">
-            <Usuario imagem={dadosDoUsuario.srcImagem} texto={dadosDoUsuario.texto}/>
+            <Usuario/>
             <Sugestoes/>
             <div className="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes •

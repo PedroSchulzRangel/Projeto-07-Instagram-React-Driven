@@ -304,5 +304,9 @@
     padding-top: 5px;
     color: black;
   }
-  
-  
+  ion-icon.sem-curtida{
+    color: black;
+  }
+  ion-icon.curtida{
+    color: red
+  }
